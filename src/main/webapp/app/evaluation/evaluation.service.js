@@ -194,6 +194,21 @@
 
         }
 
+        dataFactory.getQuestionnairesForTheme=function(){
+            for(var i=0;i<dataFactory.allData.evaluation.questionnaires.length;i++){
+                if(dataFactory.allData.evaluation.questionnaires[i].score!=null){
+                    dataFactory.allData.evaluation.questionnaires[i].disabled=true;
+                }
+                else{
+                    dataFactory.allData.evaluation.questionnaires[i].disabled=false;
+                }
+                dataFactory.allData.evaluation.questionnaires[i].totalScore=dataFactory.allData.evaluation.questionnaires[i].questions[i].reponses.length;
+
+
+            }
+            return dataFactory.allData.evaluation.questionnaires;
+        }
+
         dataFactory.findQuestionnaireByTheme=function(theme){
             var questionnaire={};
             for(var i=0;i<dataFactory.allData.evaluation.questionnaires.length;i++) {

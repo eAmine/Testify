@@ -11,7 +11,7 @@
                              ng-click="questionnaire.disabled||theme.demarrerTest(questionnaire.theme)"
                              class="img-center img-rounded img-responsive"
                              ng-class="{'img-disabled': questionnaire.disabled}">
-                        <h4 ng-show="questionnaire.score!=null">Votre score est : {{questionnaire.score}}</h4>
+                        <h4 ng-show="questionnaire.score!=null">Votre score est : {{questionnaire.score}}/{{questionnaire.totalScore}}</h4>
                     </div>
                 </div><!-- row -->
 
