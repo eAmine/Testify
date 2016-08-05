@@ -30,7 +30,7 @@
 
                                             "reponses": [
                                                 {
-                                                    score: 1,
+                                                    score: 3,
                                                     "description": "Interprété"
                                                 },
                                                 {
@@ -66,7 +66,7 @@
                                                     "description": "Que cet attribut sera toujours passé par valeur"
                                                 },
                                                 {
-                                                    score: 1,
+                                                    score: 3,
                                                     "description": "Que cet attribut a une valeur unique pour toutes les instances de la classe"
                                                 }
 
@@ -87,7 +87,7 @@
                                                 "description": "Une méthode abstraite n'a pas d'implémentation"
                                             },
                                             {
-                                                score: 1,
+                                                score: 3,
                                                 "description": "Une classe abstraite n'a pas forcément de classe fille"
                                             },
                                             {
@@ -116,7 +116,7 @@
                                                 "description": "myChild = myParent;"
                                             },
                                             {
-                                                score: 1,
+                                                score: 3,
                                                 "description": "myChild = (MyChild)myParent;"
                                             }
 
@@ -138,42 +138,74 @@
                                 "questions": [
                                     {
 
-                                            "reponses": [
-                                                {
-                                                    score: 1,
-                                                    "description": "qui a une valeur unique dans toutes les instances de la classe"
-                                                },
-                                                {
-                                                    score: -1,
-                                                    "description": "dont la valeur ne peut pas être modifiée"
-                                                },
-                                                {
-                                                    score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public"
-                                                }
-                                            ]
+                                        "reponses": [
+                                            {
+                                                score: -1,
+                                                "description": "Sans Qualification Libérale."
+                                            },
+                                            {
+                                                score: 3,
+                                                "description": "   Structured Query Language"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Super Query Langage"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Structured Qualified Langage"
+                                            }
+                                        ]
                                         ,
-                                        "description": "Un attribut static est un attribut",
+                                        "description": "Qu'appelle-t-on SQL?",
 
                                     },
                                     {
 
-                                            "reponses": [
-                                                {
-                                                    score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe"
-                                                },
-                                                {
-                                                    score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles seulement dans les méthodes déclarées après l'attribut\""
-                                                },
-                                                {
-                                                    score: 1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public\""
-                                                }
-                                            ]
-                                    ,
-                                        "description": "laquelle de ces affirmations est vraie ?",
+                                        "reponses": [
+                                            {
+                                                score: -1,
+                                                "description": "Elle est un attribut spécifique qui n'existe nul part ailleurs. On dit primaire car elle est obligatoirement mise en premier."
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Elle est un attribut qui montre un lien entre deux tables, une dépendance fonctionnelle."
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Elle permet d'ouvrir la salle de cours."
+                                            },
+                                            {
+                                                score: 3,
+                                                "description" : "Elle permet d'identifier, de caractériser, sans équivoque chaque enregistrement de la table."
+                                            }
+                                        ]
+                                        ,
+                                        "description": "Quelle est la définition de la clé primaire ?",
+
+                                    },
+                                    {
+
+                                        "reponses": [
+                                            {
+                                                score: -1,
+                                                "description": "Elle correspond à un attribut d'une autre relation."
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Elle n'est pas présente dans la relation."
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Elle est facultative, elle ne présente pas d'intérêt."
+                                            },
+                                            {
+                                                score: 3,
+                                                "description": "Elle est un attribut qui montre un lien entre deux tables, une dépendance fonctionnelle."
+                                            }
+                                        ]
+                                        ,
+                                        "description": "Quelle est la définition de la clé étrangère ?",
 
                                     }
                                 ],
@@ -195,17 +227,25 @@
         }
 
         dataFactory.getQuestionnairesForTheme=function(){
+
             for(var i=0;i<dataFactory.allData.evaluation.questionnaires.length;i++){
+                var totalScore=0;
                 if(dataFactory.allData.evaluation.questionnaires[i].score!=null){
                     dataFactory.allData.evaluation.questionnaires[i].disabled=true;
                 }
                 else{
                     dataFactory.allData.evaluation.questionnaires[i].disabled=false;
                 }
-                dataFactory.allData.evaluation.questionnaires[i].totalScore=dataFactory.allData.evaluation.questionnaires[i].questions[i].reponses.length;
-
-
+                dataFactory.allData.evaluation.questionnaires[i].totalScore=0;
+                for(var j=0;j<dataFactory.allData.evaluation.questionnaires[i].questions.length;j++) {
+                    for(var k=0;k<dataFactory.allData.evaluation.questionnaires[i].questions[j].reponses.length;k++) {
+                        if (dataFactory.allData.evaluation.questionnaires[i].questions[j].reponses[k].score > 0)
+                            totalScore += dataFactory.allData.evaluation.questionnaires[i].questions[j].reponses[k].score;
+                    }
+                }
+                dataFactory.allData.evaluation.questionnaires[i].totalScore = totalScore;
             }
+
             return dataFactory.allData.evaluation.questionnaires;
         }
 
