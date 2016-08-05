@@ -1,0 +1,84 @@
+<evaluation>
+    <questionnaires>
+        <questionnaire>
+            <theme> Java </theme>
+            <niveau> Junior </niveau>
+            <questions>
+                <question>
+                    <description>Un attribut static est un attribut</description>
+                    <reponses>
+                        <reponse>
+                            <description>qui a une valeur unique dans toutes les instances de la classe</description>
+                            <score>1</score>
+                        </reponse>
+                        <reponse>
+                            <description>dont la valeur ne peut pas être modifiée</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public</description>
+                            <score>-1</score>
+                        </reponse>
+                    </reponses>
+                </question>
+                <question>
+                    <description>laquelle de ces affirmations est vraie ?</description>
+                    <reponses>
+                        <reponse>
+                            <description>les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>"les attributs déclarés dans une classe sont visibles seulement dans les méthodes déclarées après l'attribut"</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>"les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public"</description>
+                            <score>1</score>
+                        </reponse>
+                    </reponses>
+                </question>
+            </questions>
+        </questionnaire>
+        <questionnaire>
+            <theme> Java </theme>
+            <niveau> Junior </niveau>
+            <questions>
+                <question>
+                    <description>Un attribut static est un attribut</description>
+                    <reponses>
+                        <reponse>
+                            <description>qui a une valeur unique dans toutes les instances de la classe</description>
+                            <score>1</score>
+                        </reponse>
+                        <reponse>
+                            <description>dont la valeur ne peut pas être modifiée</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public</description>
+                            <score>-1</score>
+                        </reponse>
+                    </reponses>
+                </question>
+                <question>
+                    <description>laquelle de ces affirmations est vraie ?</description>
+                    <reponses>
+                        <reponse>
+                            <description>les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>"les attributs déclarés dans une classe sont visibles seulement dans les méthodes déclarées après l'attribut"</description>
+                            <score>-1</score>
+                        </reponse>
+                        <reponse>
+                            <description>"les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public"</description>
+                            <score>1</score>
+                        </reponse>
+                    </reponses>
+                </question>
+            </questions>
+        </questionnaire>
+    </questionnaires>
+</evaluation>

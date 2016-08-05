@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
+    <link rel="stylesheet" href="content/css/style.css">
     <!-- endbuild -->
 </head>
 <body ng-app="testifyApp" ng-strict-di>
@@ -29,7 +30,7 @@
         </div>
 
         <div class="footer" ng-cloak>
-            <p>This is your footer</p>
+
         </div>
     </div>
 
@@ -68,6 +69,8 @@
     <!-- inject:js -->
     <script src="app/app.module.js"></script>
     <script src="app/services/user/user.service.js"></script>
+    <script src="app/services/quiz/quiz.service.js"></script>
+    <script src="app/services/quiz/quiz.metrics.js"></script>
     <script src="app/services/profiles/profile.service.js"></script>
     <script src="app/services/profiles/page-ribbon.directive.js"></script>
     <script src="app/services/auth/sessions.service.js"></script>
@@ -82,12 +85,47 @@
     <script src="app/services/auth/auth.service.js"></script>
     <script src="app/services/auth/activate.service.js"></script>
     <script src="app/services/auth/account.service.js"></script>
+    <script src="app/quiz/quiz.state.js"></script>
+    <script src="app/quiz/quiz.controller.js"></script>
     <script src="app/layouts/navbar/navbar.controller.js"></script>
     <script src="app/layouts/navbar/active-link.directive.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/evaluation/evaluation.module.js"></script>
+    <script src="app/evaluation/theme/theme.state.js"></script>
+    <script src="app/evaluation/theme/theme.service.js"></script>
+    <script src="app/evaluation/theme/theme.controller.js"></script>
+    <script src="app/evaluation/questionnaire/questionnaire.state.js"></script>
+    <script src="app/evaluation/questionnaire/questionnaire.service.js"></script>
+    <script src="app/evaluation/questionnaire/questionnaire.controller.js"></script>
+    <script src="app/evaluation/evaluation.service.js"></script>
+    <script src="app/evaluation/evaluation.controller.js"></script>
+    <script src="app/entities/quizz/quizz-dialog.controller.js"></script>
+    <script src="app/entities/quizz/quizz-detail.controller.js"></script>
+    <script src="app/entities/quizz/quizz-delete-dialog.controller.js"></script>
+    <script src="app/entities/quizz/quizz.state.js"></script>
+    <script src="app/entities/quizz/quizz.service.js"></script>
+    <script src="app/entities/quizz/quizz.controller.js"></script>
+    <script src="app/entities/question/question-dialog.controller.js"></script>
+    <script src="app/entities/question/question-detail.controller.js"></script>
+    <script src="app/entities/question/question-delete-dialog.controller.js"></script>
+    <script src="app/entities/question/question.state.js"></script>
+    <script src="app/entities/question/question.service.js"></script>
+    <script src="app/entities/question/question.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
+    <script src="app/entities/category/category-dialog.controller.js"></script>
+    <script src="app/entities/category/category-detail.controller.js"></script>
+    <script src="app/entities/category/category-delete-dialog.controller.js"></script>
+    <script src="app/entities/category/category.state.js"></script>
+    <script src="app/entities/category/category.service.js"></script>
+    <script src="app/entities/category/category.controller.js"></script>
+    <script src="app/entities/answerschoice/answerschoice-dialog.controller.js"></script>
+    <script src="app/entities/answerschoice/answerschoice-detail.controller.js"></script>
+    <script src="app/entities/answerschoice/answerschoice-delete-dialog.controller.js"></script>
+    <script src="app/entities/answerschoice/answerschoice.state.js"></script>
+    <script src="app/entities/answerschoice/answerschoice.service.js"></script>
+    <script src="app/entities/answerschoice/answerschoice.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>

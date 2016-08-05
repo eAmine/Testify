@@ -1,0 +1,24 @@
+<div ng-controller="themeController as theme">
+    <div class="row">
+        <div class="col-sm-6" ng-repeat="questionnaire in theme.questionnaires">
+            <!-- using a bootstrap well to style -->
+
+                <div class="row">
+                    <div class="col-md-6 text-center"
+                         >
+                        <!-- ng-src instead of src to allow correct functionality with angular -->
+                        <img ng-src="{{questionnaire.image_url}}"
+                             ng-click="questionnaire.disabled||theme.demarrerTest(questionnaire.theme)"
+                             class="img-center img-rounded img-responsive"
+                             ng-class="{'img-disabled': questionnaire.disabled}">
+                        <h4 ng-show="questionnaire.score!=null">Votre score est : {{questionnaire.score}}</h4>
+                    </div>
+                </div><!-- row -->
+
+        </div><!-- col-xs-6 -->
+
+</div>
+
+
+
+</div>
