@@ -31,19 +31,23 @@
                                             "reponses": [
                                                 {
                                                     score: 1,
-                                                    "description": "qui a une valeur unique dans toutes les instances de la classe"
+                                                    "description": "Interprété"
                                                 },
                                                 {
                                                     score: -1,
-                                                    "description": "dont la valeur ne peut pas être modifiée"
+                                                    "description": "Compilé"
                                                 },
                                                 {
                                                     score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public"
+                                                    "description": "Les deux"
+                                                },
+                                                {
+                                                    score: -1,
+                                                    "description": "Ni l'un ni l'autre"
                                                 }
                                             ]
                                         ,
-                                        "description": "Un attribut static est un attribut",
+                                        "description": "Java est un langage…",
 
                                     },
                                     {
@@ -51,21 +55,77 @@
                                             "reponses": [
                                                 {
                                                     score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe"
+                                                    "description": "Que la valeur de cet attribut est constante"
                                                 },
                                                 {
                                                     score: -1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles seulement dans les méthodes déclarées après l'attribut\""
+                                                    "description": "Que cet attribut n'est visible que dans la classe où il est défini"
+                                                },
+                                                {
+                                                    score: -1,
+                                                    "description": "Que cet attribut sera toujours passé par valeur"
                                                 },
                                                 {
                                                     score: 1,
-                                                    "description": "les attributs déclarés dans une classe sont visibles dans toutes les méthodes de la classe seulement si leur visibilité est public\""
+                                                    "description": "Que cet attribut a une valeur unique pour toutes les instances de la classe"
                                                 }
+
                                             ]
                                         ,
-                                        "description": "laquelle de ces affirmations est vraie ?",
+                                        "description": "Que signifie le mot clef 'static' associé à un attribut ?",
+
+                                    },
+                                    {
+
+                                        "reponses": [
+                                            {
+                                                score: -1,
+                                                "description": "Une classe abstraite ne peut être instanciée"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Une méthode abstraite n'a pas d'implémentation"
+                                            },
+                                            {
+                                                score: 1,
+                                                "description": "Une classe abstraite n'a pas forcément de classe fille"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "Une classe abstraite doit contenir au moins une méthode abstraite"
+                                            }
+
+                                        ]
+                                        ,
+                                        "description": "Au sujet du mot clef 'abstract', quelle assertion est fausse ?",
+
+                                    },
+                                    {
+
+                                        "reponses": [
+                                            {
+                                                score: -1,
+                                                "description": "Parent p = new Child();"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "myParent = myChild;"
+                                            },
+                                            {
+                                                score: -1,
+                                                "description": "myChild = myParent;"
+                                            },
+                                            {
+                                                score: 1,
+                                                "description": "myChild = (MyChild)myParent;"
+                                            }
+
+                                        ]
+                                        ,
+                                        "description": "Child est une classe héritant de la classe Parent. myChild et myParent sont des instances respectivement de Child et Parent. Quel code ne compile pas ?",
 
                                     }
+
                                 ]
                             ,
                             "niveau": "EXPERT"
