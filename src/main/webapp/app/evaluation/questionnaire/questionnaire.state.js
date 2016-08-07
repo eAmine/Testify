@@ -12,7 +12,7 @@
             parent: 'evaluation',
             url: '/questionnaire/{theme}',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER']
             },
             views: {
                 'content@': {

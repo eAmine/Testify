@@ -5,55 +5,35 @@
         .module("evaluation")
         .controller("questionnaireController", questionnaireController);
 
-    questionnaireController.$inject=['$scope','dataFactory','$timeout','$location','$stateParams'];
+    questionnaireController.$inject=['$scope','dataFactory','$timeout','$location','$stateParams','$filter'];
 
 
-    function questionnaireController($scope,dataFactory,$timeout,$location,$stateParams) {
+    function questionnaireController($scope,dataFactory,$timeout,$location,$stateParams,$filter) {
         var vm = this;
         vm.questions = dataFactory.findQuestionsByTheme($stateParams.theme);
         //FIXME faire un seul appel au questionnaire et extraire les questions
         vm.questionnaire=dataFactory.findQuestionnaireByTheme($stateParams.theme);
         vm.activeQuestion = 0;
         vm.score=0;
-        vm.activeReponse=null;
+        vm.activeReponses=[];
         vm.error = false;
-        vm.validerReponse=function(questionnaire,score) {
-            if (score == null) {
-                vm.error = true;
+        $scope.$on('activeReponseUpdated',function(event,args){
+                vm.activeReponses.push(args.activeReponse);
+        });
+        $scope.$on('dureeTerminee',function(event,args){
+            vm.validerReponse();
+        });
+        vm.validerReponse=function() {
 
-            }
-            else {
-                dataFactory.setQuestionnaireScore(questionnaire, score);
-                vm.activeReponse = null;
-                //vm.counter=5;
                 if (vm.activeQuestion < vm.questions.length - 1) {
                     vm.activeQuestion++;
-
                 }
                 else {
+                    dataFactory.setQuestionnaireScore(vm.questionnaire, vm.activeReponses);
                     $location.path('/evaluation');
                 }
-            }
         }
-        vm.calculerScore=function(questionnaire,reponse){
-            vm.activeReponse=reponse;
-
-        }
-        //compteur pour chaque question
-        /*var vm =this;
-        vm.counter = 5;
-        var stopped;
-        vm.countdown = function() {
-            stopped = $timeout(function() {
-                vm.counter--;
-                vm.countdown();
-                if(vm.counter===0){
-                    vm.validerReponse(vm.questionnaire,0);
-
-                }
-            }, 1000);
-        };
-        vm.countdown();*/
+        
 
     }
 

@@ -10,7 +10,7 @@
                 Vous n'avez pas répondu à la question !
                 <button class="close" ng-click="quiz.error = false">&times</button>
             </div>
-            <h3>Question {{quiz.activeQuestion+1}}: {{quiz.counter}}</h3>
+            <div class="col-xs-8"> <h3>Question {{quiz.activeQuestion+1}}: </h3></div><div class="col-xs-4"><compteur duree="quiz.questions[quiz.activeQuestion].duree"></compteur></div>
             <div class="well well-sm" >
                 <div class="row">
                     <div class="col-xs-12">
@@ -18,18 +18,14 @@
                         <h4>{{ quiz.questions[quiz.activeQuestion].description}}</h4>
 
                         <div class="row">
-                            <div class="col-sm-6" ng-repeat="answer in quiz.questions[quiz.activeQuestion].reponses">
-                                <h4 class="answer"
-                                    ng-class="{'bg-primary': answer === quiz.activeReponse}"
-                                    ng-click="quiz.calculerScore(quiz.questionnaire,answer)">
-                                    {{answer.description}}
-                                </h4>
+                            <div class="col-sm-6" ng-repeat="reponse in quiz.questions[quiz.activeQuestion].reponses">
+                                <reponse/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ng-click will call the questionAnswered method on the controller -->
-                <button class="btn btn-warning" ng-click="quiz.validerReponse(quiz.questionnaire,quiz.activeReponse.score)">Continuer</button>
+                <button class="btn btn-warning" ng-click="quiz.validerReponse()">Continuer</button>
             </div>
 
 

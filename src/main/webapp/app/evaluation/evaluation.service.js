@@ -11,13 +11,9 @@
             allData:[]
         };
 
-
         dataFactory.allData =
         {
             "evaluation": {
-
-
-
                     "questionnaires": [
                         {
                             id:1,
@@ -48,6 +44,7 @@
                                             ]
                                         ,
                                         "description": "Java est un langage…",
+                                         duree:5
 
                                     },
                                     {
@@ -73,7 +70,7 @@
                                             ]
                                         ,
                                         "description": "Que signifie le mot clef 'static' associé à un attribut ?",
-
+                                         duree:5
                                     },
                                     {
 
@@ -98,7 +95,7 @@
                                         ]
                                         ,
                                         "description": "Au sujet du mot clef 'abstract', quelle assertion est fausse ?",
-
+                                        duree:5
                                     },
                                     {
 
@@ -123,7 +120,7 @@
                                         ]
                                         ,
                                         "description": "Child est une classe héritant de la classe Parent. myChild et myParent sont des instances respectivement de Child et Parent. Quel code ne compile pas ?",
-
+                                        duree:5
                                     }
 
                                 ]
@@ -158,7 +155,7 @@
                                         ]
                                         ,
                                         "description": "Qu'appelle-t-on SQL?",
-
+                                        duree:30
                                     },
                                     {
 
@@ -182,7 +179,7 @@
                                         ]
                                         ,
                                         "description": "Quelle est la définition de la clé primaire ?",
-
+                                        duree:15
                                     },
                                     {
 
@@ -206,7 +203,7 @@
                                         ]
                                         ,
                                         "description": "Quelle est la définition de la clé étrangère ?",
-
+                                        duree:25
                                     }
                                 ],
                             "niveau": " Junior"
@@ -216,14 +213,36 @@
 
         };
 
-        dataFactory.setQuestionnaireScore=function(questionnaire,score){
-            for(var i=0;i<dataFactory.allData.evaluation.questionnaires.length;i++) {
-                if(dataFactory.allData.evaluation.questionnaires[i].id===questionnaire.id){
-                    dataFactory.allData.evaluation.questionnaires[i].score+=score;
+        dataFactory.setQuestionnaireScore=function(questionnaire,reponses) {
+            var selectedReponses = reponses.filter(filterArray);
+            var questionnaire=dataFactory.findQuestionnaireById(questionnaire);
+            if(selectedReponses.length != 0){
+                for (var j = 0; j < reponses.length; j++) {
+                    if (angular.isUndefined(reponses[j].score) && selectedReponses.length != 0) {
+                                questionnaire.score += reponses[j].score;
+                    }
+                }
+
+            }
+            else {
+                questionnaire.score = 0;
+            }
+        }
+
+        dataFactory.setQuestionnaireScore=function(questionnaire,reponses) {
+            var selectedReponses = reponses.filter(filterArray);
+            for (var i = 0; i < dataFactory.allData.evaluation.questionnaires.length; i++) {
+                if (dataFactory.allData.evaluation.questionnaires[i].id === questionnaire.id) {
+                    if(selectedReponses.length != 0){
+                        for (var j = 0; j < selectedReponses.length; j++) {
+                            dataFactory.allData.evaluation.questionnaires[i].score += selectedReponses[j].score;
+                        }
+                    }
+                    else{
+                        dataFactory.allData.evaluation.questionnaires[i].score=0;
+                    }
                 }
             }
-
-
         }
 
         dataFactory.getQuestionnairesForTheme=function(){
@@ -284,7 +303,11 @@
             return themes;
         }
 
-
+        function filterArray(object) {
+            if (!angular.isUndefined(object.selected)) {
+                return true;
+            }
+        }
 
         return dataFactory;
     }
